@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>get</title>
+</head>
+<body>
+
+    <form action="grt.php" method="post">
+        <h1>student attendance</h1>
+            <label>Name</label>
+            <input name="name" type="text" required> 
+
+            <label>father_name</label>
+            <input class="input1" name="fname" type="text" required>
+
+            <label>dob</label>
+            <input class="input2" name="dob" type="text" required>
+
+            <label>mobile_no</label>
+            <input class="input2" name="mobile" type="text" required>
+
+            <button name="submit" type="submit">Submit</button>
+    </form>
+
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>MAIL</th>
+            <th>Password</th>
+            <th>number</th>
+            <th>Delete</th>
+            <th>Edit</th>
+        </tr>
+
+
+        <?php foreach($users as $user): ?>
+        <tr>
+            <td><?= $user->id ?></td>
+            <td><?= $user->name ?></td>
+            <td><?= $user->father_name ?></td>
+            <td><?= $user->dob ?></td>
+            <td><?= $user->mobile_no ?></td>
+           <td><form action="delete.php" method="post">
+                <input name="deleteToId" hidden type="text" value="<?= $user->id ?>">
+                <button type="submit"><i class="fa fa-trash" aria-hidden="true"></i>DELETE</button>
+            </form></td>
+            <td>
+                <form action="edit.php" method="get">
+                    <input name="editin" hidden type="text" value="<?= $user->id ?>">
+                    <button type="submit"><i class="fa-solid fa-pen-to-square"></i>Edit</button>
+                </form>
+            </td>
+
+        </tr>
+        <?php endforeach; ?>
+    </table>
+
+
+
+    <style>
+    table, td, th {
+    border: 1px solid;
+    border-collapse: collapse;
+    padding-top: 10px;
+    padding-left: 18px;
+    padding-right: 50px;
+    padding-bottom: 10px;
+    text-align: center;
+        
+    }
+    th {
+        background-color: rgb(58, 223, 85);
+        /* margin-left: 100px; */
+    }
+    </style>
+</body>
+</html>
+

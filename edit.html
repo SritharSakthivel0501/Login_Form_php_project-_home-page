@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>edit</title>
+</head>
+<body>
+<?php foreach ($edit as $edits): ?>
+<form action="update.php" method="post">
+    <h1>student attendance</h1>
+    <label>id</label>
+    <input name="id" type="text" value="<?php echo $edits->id ?>" required>
+    <br>
+    <label>Name</label>
+    <input name="name" type="text" value="<?php echo $edits->name ?>" required>
+    <br>
+    <label>father_name</label>
+    <input class="input1" name="fname" type="text" value="<?php echo $edits->father_name ?>" required>
+    <br>
+    <label>dob</label>
+    <input class="input2" name="dob" type="text" value="<?php echo $edits->	dob ?>" required>
+    <br>
+    <label>mobile_no</label>
+    <input class="input2" name="mobile" type="text" value="<?php echo $edits->mobile_no ?>" required>
+    <br>
+    <button name="submit" type="submit">Submit</button>
+</form>
+
+<?php endforeach; ?>
+
+</body>
+</html>
